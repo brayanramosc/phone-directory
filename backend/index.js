@@ -10,6 +10,8 @@ morgan.token('body', req => JSON.stringify(req.body))
 morgan(':method :url :status :res[content-length] - :response-time ms :body')
 app.use(morgan('tiny'))
 
+app.use(express.static('dist'))
+
 let persons = [
     {
         "id": 1,
