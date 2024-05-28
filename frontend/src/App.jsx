@@ -31,6 +31,7 @@ function App() {
       alert(res.error)
     }
     setPerson({ name: '', number: '' })
+    setSelectedPerson(null)
     fetchData()
   }
 
