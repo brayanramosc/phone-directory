@@ -22,18 +22,18 @@ const create = async (person) => {
     return res
 }
 
-// const update = async (person) => {
-//     const req = await fetch(
-//         BASE_URL,
-//         {
-//             method: 'PUT',
-//             body: JSON.stringify(person),
-//             headers: {
-//                 "Content-Type": "application/json"
-//             }
-//         }
-//     )
-// }
+const update = async (person) => {
+    const req = await fetch(
+        BASE_URL,
+        {
+            method: 'PUT',
+            body: JSON.stringify(person),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    )
+}
 
 const remove = async (id) => {
     await fetch(
@@ -44,4 +44,4 @@ const remove = async (id) => {
     )
 }
 
-export default { getAll, create, remove }
+export default { getAll, create, remove, update }

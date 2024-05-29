@@ -23,10 +23,17 @@ function App() {
     e.preventDefault()
     if (!person.name || !person.number) {
       setPerson({ name: '', number: '' })
+      alert('Fill all the fields')
       return
     }
 
-    const res = await personService.create(person)
+    let res
+    if (selectedPerson) {
+      res = await personService.update(selectedPerson)
+    } else {
+      res = await personService.create(person)
+    }
+
     if (res.error) {
       alert(res.error)
     }
