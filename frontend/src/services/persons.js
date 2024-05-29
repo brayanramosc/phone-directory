@@ -22,9 +22,9 @@ const create = async (person) => {
     return res
 }
 
-const update = async (person) => {
+const update = async (person, id) => {
     const req = await fetch(
-        BASE_URL,
+        BASE_URL + `/${id}`,
         {
             method: 'PUT',
             body: JSON.stringify(person),
@@ -33,6 +33,8 @@ const update = async (person) => {
             }
         }
     )
+    const res = await req.json()
+    return res
 }
 
 const remove = async (id) => {

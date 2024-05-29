@@ -29,12 +29,12 @@ function App() {
 
     let res
     if (selectedPerson) {
-      res = await personService.update(selectedPerson)
+      res = await personService.update(person, selectedPerson.id)
     } else {
       res = await personService.create(person)
     }
 
-    if (res.error) {
+    if (res?.error) {
       alert(res.error)
     }
     setPerson({ name: '', number: '' })
@@ -90,7 +90,8 @@ function App() {
           <Person
             key={person.id}
             person={person}
-            handleClick={() => handleClickPerson(person)} isSelected={selectedPerson?.id === person.id}
+            handleClick={() => handleClickPerson(person)}
+            isSelected={selectedPerson?.id === person.id}
           />
         )}
       </ul>
